@@ -1,19 +1,21 @@
 {
-  "name": "chartjs-plugin-autocolors",
-  "version": "0.0.6",
-  "description": "Automatic color generation for Chart.js",
+  "name": "chartjs-plugin-autocolors-typescript",
+  "version": "0.0.7",
+  "description": "A fork of urkle/chartjs-plugin-autocolors (Automatic color generation for Chart.js) with types",
   "main": "dist/chartjs-plugin-autocolors.js",
   "module": "dist/chartjs-plugin-autocolors.esm.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
+    "build": "tsc -d --declarationDir dist --declarationMap --emitDeclarationOnly --allowJs src/index.js && rollup -c",
     "lint": "eslint samples/**/*.html samples/**/*.js src/**/*.js **/*.md"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kurkle/chartjs-plugin-autocolors.git"
+    "url": "git+https://github.com/gcollin/chartjs-plugin-autocolors.git"
   },
   "files": [
-    "dist/*.js"
+    "dist/*.js",
+    "dist/*.ts"
   ],
   "keywords": [
     "chart.js",
@@ -38,6 +40,7 @@
     "eslint-plugin-html": "^6.1.2",
     "eslint-plugin-markdown": "^2.2.0",
     "rollup": "^2.33.2",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.8.2"
   }
 }

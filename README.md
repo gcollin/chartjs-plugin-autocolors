@@ -2,6 +2,8 @@
 
 *Automatic color generation for [Chart.js](https://www.chartjs.org)*
 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/kurkle/chartjs-plugin-autocolors/ci.yml)
+
 The generation is based on Janus Troelsen's answer at [Stack Overflow](https://stackoverflow.com/a/13781114/10359775).
 
 This plugin requires Chart.js 3.0.0 or later. Could work with v2, but it is not supported.
@@ -10,14 +12,14 @@ This plugin requires Chart.js 3.0.0 or later. Could work with v2, but it is not 
 
 ## Example
 
-![Example chart](https://github.com/kurkle/chartjs-plugin-autocolors/raw/master/sample.png "Example chart")
+![Example chart](https://github.com/kurkle/chartjs-plugin-autocolors/raw/main/sample.png "Example chart")
 
 ## Installation
 
 NPM:
 
 ```bash
-npm i --save-dev chartjs-plugin-autocolors
+npm i --save chartjs-plugin-autocolors
 ```
 
 CDN:
@@ -80,10 +82,13 @@ const chart = new Chart(ctx, {
 
 ### Mode
 
-There are two modes, `'dataset'` (default) and `'data'`
+**NOTE:** `'dataset'` mode does not work properly for **Pie / Doughnut** charts, so using `'data'` mode with those charts is advised.
+
+There are two modes, `'dataset'` (default) `'data'` and `'label'`
 
 - In `'dataset'` mode, a new color is picked for each dataset.
 - In `'data'` mode, an array of colors, equivalent to the length of data is provided for each dataset.
+- In `'label'` mode, color is picked for each different dataset label.
 
 ```js
 const chart = new Chart(ctx, {
@@ -142,10 +147,28 @@ const chart = new Chart(ctx, {
 });
 ```
 
+### Repeat
+
+Sometimes you might need to color multiple adjacent datasets with same color. The `repeat` option is for that use case.
+
+
+```js
+const chart = new Chart(ctx, {
+  // ...
+  options: {
+    plugins: {
+      autocolors: {
+        repeat: 2
+      }
+    }
+  }
+});
+```
+
 ## Browser compatibility
 
 This plugin uses a generator function, so it is not compatible with Internet Explorer.
 
 ## License
 
-`chartjs-plugin-autocolors.js` is available under the [MIT license](https://github.com/kurkle/chartjs-plugin-autocolors/blob/master/LICENSE).
+`chartjs-plugin-autocolors.js` is available under the [MIT license](https://github.com/kurkle/chartjs-plugin-autocolors/blob/main/LICENSE).

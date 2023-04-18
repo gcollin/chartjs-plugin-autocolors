@@ -1,6 +1,6 @@
 {
   "name": "chartjs-plugin-autocolors-typescript",
-  "version": "0.2.2",
+  "version": "0.2.5",
   "description": "A fork of kurkle/chartjs-plugin-autocolors (Automatic color generation for Chart.js) with types",
   "type": "module",
   "main": "dist/chartjs-plugin-autocolors.cjs",
